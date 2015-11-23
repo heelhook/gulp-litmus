@@ -3,8 +3,7 @@ var gutil = require('gulp-util');
 var es = require('event-stream');
 var Litmus = require('./lib/litmus');
 var cheerio = require('cheerio');
-var dateFormat = require('dateformat');
-
+var path = require('path');
 
 function sendLitmus(options){
 
@@ -13,7 +12,6 @@ function sendLitmus(options){
 	}
 
 	var now = new Date();
-	var date = dateFormat(now, 'yyyy-mm-dd');
 	var litmus, html, $, title, finalHtml;
 
 	return es.map(function (file, cb) {
@@ -31,18 +29,18 @@ function sendLitmus(options){
 		if (file.isBuffer()) {
 			litmus = new Litmus(options);
 
-			html = file.contents;    
+			html = file.contents;
 	    $ = cheerio.load(html);
 	    title = $('title').text().trim();
 
-	    if (title.length === 0) { title = date; }
-	    
+	    if (title.length === 0) { title = path.basename(file.path); }
+
 	    // Send Litmus test
 	    litmus.run(html, title);
 		}
 
     cb(null, file);
-    	
+
 	});
 
 }

@@ -26,17 +26,17 @@
     "testing"
   ],
   "dependencies": {
-    "gulp-util": "~2.2.14",
-    "event-stream": "~3.1.5",
-    "litmus-api": "~0.3.2",
-    "dateformat": "~1.0.8-1.2.3",
     "chalk": "~0.4.0",
-    "cli-table": "~0.3.0",
-    "lodash": "~2.4.1",
-    "request": "~2.36.0",
     "cheerio": "~0.17.0",
-    "xmlbuilder": "~2.2.1",
-    "nodemailer": "~0.7.0"
+    "cli-table": "~0.3.0",
+    "event-stream": "~3.1.5",
+    "gulp-util": "~2.2.14",
+    "litmus-api": "~0.3.2",
+    "lodash": "~2.4.1",
+    "nodemailer": "~0.7.0",
+    "path": "^0.12.7",
+    "request": "~2.36.0",
+    "xmlbuilder": "~2.2.1"
   },
   "devDependencies": {
     "mocha": "~1.20.1",
